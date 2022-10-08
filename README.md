@@ -22,7 +22,7 @@ counter is again counting from zero. When the integrator
 output reaches zero, the count is stopped, and the analog 
 circuitry is reset. Since the charge gained is proportional to 
 VIN × T, and the equal amount of charge lost is proportional 
-to VREF × tx, then the number of counts relative to the fullscale count is proportional to tx/T, or VIN/VREF. If the 
+to VREF × tx, then the number of counts relative to the full scale count is proportional to tx/T, or VIN/VREF. If the 
 output of the counter is a binary number, it will therefore be 
 a binary representation of the input voltage. The charge on 
 the capacitor at time t1 is proportional to the average value of 
@@ -39,6 +39,7 @@ clock frequency, because they affect both the up-slope and
 the down-slope by the same ratio.
 # Reference Circuit
 <img width="461" alt="Screenshot 2022-10-08 124017" src="https://user-images.githubusercontent.com/63709769/194694929-3ea67fcd-0730-4dbb-880c-109862ff861d.png">
+
 # Final Circuit
 <img width="624" alt="final circuit" src="https://user-images.githubusercontent.com/63709769/194695114-5fd1dffb-5f72-44a9-8e65-95ebfd8710ba.png">
 
@@ -47,4 +48,28 @@ the down-slope by the same ratio.
 
 # Final Waveform
 <img width="826" alt="final waveform" src="https://user-images.githubusercontent.com/63709769/194695261-c7b43d80-4108-4038-9f78-621395c99bf1.png">
+
+# Result
+As we can see that the final waveform does not match the initial waveform. The circuit which I have designed is not working properly due to the malfunctioning in the integrator block. While trying to debug, i found out that the integrator block was not giving integrating output. That is because of the incorrect W and L values of the respective resistor and capacitor. So, if someone is able to calculate the correct values of W and L,he/she can make the circuit run properly and get the required waveform.
+
+# Verilog Code of control block
+module ritam_control(output reg reset, clk_en,input cin, sw);
+
+initial begin
+reset = 0;
+clk_en = 1;
+end
+
+always @(posedge sw) begin 
+reset = 1;
+end
+
+always @(negedge cin)begin
+clk_en = 0;
+
+end
+
+endmodule
+
+
 
