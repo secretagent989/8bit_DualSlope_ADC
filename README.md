@@ -171,6 +171,7 @@ plot v(out)
 (1) Dual Slope Converters, Hank Zumbahlen, with the 
 engineering staff of Analog Devices, in Linear Circuit 
 Design Handbook, 2008
+
 (2)Analog/Digital Conversions, Howard Austerlitz, in Data 
 Acquisition Techniques Using PCs (Second Edition), 2003
 
