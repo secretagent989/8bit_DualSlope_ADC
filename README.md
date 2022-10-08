@@ -175,7 +175,7 @@ Design Handbook, 2008
 Acquisition Techniques Using PCs (Second Edition), 2003
 
 # Author
-## **Ritam Tripathi,Electronics and Communications Engineering, B Tech Final Year,Madan Mohan malaviya University of Technology, Gorakhpur** 
+## **Ritam Tripathi,Electronics and Communications Engineering, B Tech Final Year,Madan Mohan malaviya University of Technology, Gorakhpur,UP** 
 
 
 
