@@ -53,6 +53,7 @@ the down-slope by the same ratio.
 As we can see that the final waveform does not match the initial waveform. The circuit which I have designed is not working properly due to the malfunctioning in the integrator block. While trying to debug, i found out that the integrator block was not giving integrating output. That is because of the incorrect W and L values of the respective resistor and capacitor. So, if someone is able to calculate the correct values of W and L,he/she can make the circuit run properly and get the required waveform.
 
 # Verilog Code of control block
+'''verilog
 module ritam_control(output reg reset, clk_en,input cin, sw);
 
 initial begin
@@ -70,6 +71,35 @@ clk_en = 0;
 end
 
 endmodule
+'''
 
-[ritam_control.docx](https://github.com/secretagent989/8bit_DualSlope_ADC/files/9738727/ritam_control.docx)
+# Verilog Code of Counter Block
+module ritam_counte(output reg [7:0] dout,output reg overflow, input c_en, clk, reset );
+
+
+initial begin
+overflow = 1'b0;
+dout = 8'd0;
+end
+always @(posedge reset)begin
+dout = 8'd0;
+end
+
+always @(posedge clk)begin
+if(c_en) begin
+{ overflow, dout} = dout + 8'd1;
+end
+end
+
+endmodule
+
+# Verilog Code of Start Block
+module ritam_start(output sw, input [7:0] a);
+
+assign sw = (!a[7]) & (!a[6]) & (!a[5]) & (!a[4]) & (a[3]) & (!a[2]) & (a[1]) & (!a[0]);
+
+
+endmodule
+
+
 
