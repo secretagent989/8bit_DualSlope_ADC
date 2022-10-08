@@ -53,7 +53,7 @@ the down-slope by the same ratio.
 As we can see that the final waveform does not match the initial waveform. The circuit which I have designed is not working properly due to the malfunctioning in the integrator block. While trying to debug, i found out that the integrator block was not giving integrating output. That is because of the incorrect W and L values of the respective resistor and capacitor. So, if someone is able to calculate the correct values of W and L,he/she can make the circuit run properly and get the required waveform.
 
 # Verilog Code of control block
-'''verilog
+```verilog
 module ritam_control(output reg reset, clk_en,input cin, sw);
 
 initial begin
@@ -71,7 +71,8 @@ clk_en = 0;
 end
 
 endmodule
-'''
+```
+
 
 # Verilog Code of Counter Block
 module ritam_counte(output reg [7:0] dout,output reg overflow, input c_en, clk, reset );
