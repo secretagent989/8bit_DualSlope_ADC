@@ -40,4 +40,9 @@ the down-slope by the same ratio.
 # Reference Circuit
 <img width="461" alt="Screenshot 2022-10-08 124017" src="https://user-images.githubusercontent.com/63709769/194694929-3ea67fcd-0730-4dbb-880c-109862ff861d.png">
 # Final Circuit
-![Screenshot (144)](https://user-images.githubusercontent.com/63709769/194694962-10a368ba-c99c-435a-876d-e640034e82a8.png)
+<img width="624" alt="final circuit" src="https://user-images.githubusercontent.com/63709769/194695114-5fd1dffb-5f72-44a9-8e65-95ebfd8710ba.png">
+# Reference Waveform
+<img width="362" alt="reference waveform" src="https://user-images.githubusercontent.com/63709769/194695237-401051b4-0c22-4feb-bc57-a367a4393ed7.png">
+# Final Waveform
+<img width="826" alt="final waveform" src="https://user-images.githubusercontent.com/63709769/194695261-c7b43d80-4108-4038-9f78-621395c99bf1.png">
+
