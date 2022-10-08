@@ -1,0 +1,29 @@
+* C:\Users\ritam\eSim-Workspace\adc\adc.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: 10/08/22 11:26:53
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+v3  Net-_X1-Pad1_ GND DC		
+SC4  OUT Net-_SC3-Pad2_ sky130_fd_pr__cap_mim_m3_2		
+SC3  Net-_SC1-Pad1_ Net-_SC3-Pad2_ GND sky130_fd_pr__res_generic_nd		
+U4  Net-_U4-Pad1_ Net-_U2-Pad1_ Net-_U1-Pad3_ Net-_U1-Pad1_ ritam_control		
+U1  Net-_U1-Pad1_ Net-_U1-Pad2_ Net-_U1-Pad3_ Net-_U1-Pad4_ Net-_U1-Pad5_ Net-_U1-Pad6_ Net-_U1-Pad7_ Net-_U1-Pad8_ Net-_U1-Pad9_ Net-_U1-Pad10_ Net-_U1-Pad11_ ? ritam_counte		
+U5  Net-_U1-Pad4_ Net-_U1-Pad5_ Net-_U1-Pad6_ Net-_U1-Pad7_ Net-_U1-Pad8_ Net-_U1-Pad9_ Net-_U1-Pad10_ Net-_U1-Pad11_ Net-_U2-Pad1_ ritam_start		
+SC1  Net-_SC1-Pad1_ Net-_SC1-Pad2_ vref vref sky130_fd_pr__nfet_01v8		
+SC2  Net-_SC1-Pad1_ Net-_SC1-Pad2_ vin vin sky130_fd_pr__pfet_01v8		
+v2  vin GND DC		
+v1  GND vref DC		
+v4  Net-_U7-Pad1_ GND pulse		
+U6  Net-_U6-Pad1_ Net-_U4-Pad1_ adc_bridge_1		
+U2  Net-_U2-Pad1_ Net-_SC1-Pad2_ dac_bridge_1		
+U3  OUT plot_v1		
+U7  Net-_U7-Pad1_ Net-_U1-Pad2_ adc_bridge_1		
+scmode1  SKY130mode		
+X1  Net-_X1-Pad1_ Net-_X1-Pad2_ Net-_SC3-Pad2_ GND OUT GND avsd_opamp		
+v5  GND Net-_X1-Pad2_ DC		
+X2  Net-_X1-Pad1_ GND OUT GND Net-_U6-Pad1_ GND avsd_opamp		
+
+.end

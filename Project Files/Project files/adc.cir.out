@@ -1,0 +1,57 @@
+* c:\users\ritam\esim-workspace\adc\adc.cir
+
+.include avsd_opamp.sub
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__pnp.model.spice"
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__diode_pd2nw_11v0.model.spice"
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__linear.model.spice"
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__r+c.model.spice"
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__inductors.model.spice"
+.lib "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130.lib.spice" tt
+.include "C:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__diode_pw2nd_11v0.model.spice"
+v3 net-_x1-pad1_ gnd  dc 3.3
+xsc4 out net-_sc3-pad2_ sky130_fd_pr__cap_mim_m3_2 W=10L=1
+xsc3 net-_sc1-pad1_ net-_sc3-pad2_ gnd sky130_fd_pr__res_generic_nd W=1 L=10
+* u4  net-_u4-pad1_ net-_u2-pad1_ net-_u1-pad3_ net-_u1-pad1_ ritam_control
+* u1  net-_u1-pad1_ net-_u1-pad2_ net-_u1-pad3_ net-_u1-pad4_ net-_u1-pad5_ net-_u1-pad6_ net-_u1-pad7_ net-_u1-pad8_ net-_u1-pad9_ net-_u1-pad10_ net-_u1-pad11_ ? ritam_counte
+* u5  net-_u1-pad4_ net-_u1-pad5_ net-_u1-pad6_ net-_u1-pad7_ net-_u1-pad8_ net-_u1-pad9_ net-_u1-pad10_ net-_u1-pad11_ net-_u2-pad1_ ritam_start
+xsc1 net-_sc1-pad1_ net-_sc1-pad2_ vref vref sky130_fd_pr__nfet_01v8 W=1 L=1
+xsc2 net-_sc1-pad1_ net-_sc1-pad2_ vin vin sky130_fd_pr__pfet_01v8 W=1 L=1
+v2 vin gnd  dc 4
+v1 gnd vref  dc 5
+v4  net-_u7-pad1_ gnd pulse(0 1.8 0 0 0 1u 2u)
+* u6  net-_u6-pad1_ net-_u4-pad1_ adc_bridge_1
+* u2  net-_u2-pad1_ net-_sc1-pad2_ dac_bridge_1
+* u3  out plot_v1
+* u7  net-_u7-pad1_ net-_u1-pad2_ adc_bridge_1
+* s c m o d e
+x1 net-_x1-pad1_ net-_x1-pad2_ net-_sc3-pad2_ gnd out gnd avsd_opamp
+v5 gnd net-_x1-pad2_  dc 3.3
+x2 net-_x1-pad1_ gnd out gnd net-_u6-pad1_ gnd avsd_opamp
+a1 [net-_u4-pad1_ ] [net-_u2-pad1_ ] [net-_u1-pad3_ ] [net-_u1-pad1_ ] u4
+a2 [net-_u1-pad1_ ] [net-_u1-pad2_ ] [net-_u1-pad3_ ] [net-_u1-pad4_ net-_u1-pad5_ net-_u1-pad6_ net-_u1-pad7_ net-_u1-pad8_ net-_u1-pad9_ net-_u1-pad10_ net-_u1-pad11_ ] [? ] u1
+a3 [net-_u1-pad4_ net-_u1-pad5_ net-_u1-pad6_ net-_u1-pad7_ net-_u1-pad8_ net-_u1-pad9_ net-_u1-pad10_ net-_u1-pad11_ ] [net-_u2-pad1_ ] u5
+a4 [net-_u6-pad1_ ] [net-_u4-pad1_ ] u6
+a5 [net-_u2-pad1_ ] [net-_sc1-pad2_ ] u2
+a6 [net-_u7-pad1_ ] [net-_u1-pad2_ ] u7
+* Schematic Name:                             ritam_control, NgSpice Name: ritam_control
+.model u4 ritam_control(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 ) 
+* Schematic Name:                             ritam_counte, NgSpice Name: ritam_counte
+.model u1 ritam_counte(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 ) 
+* Schematic Name:                             ritam_start, NgSpice Name: ritam_start
+.model u5 ritam_start(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 ) 
+* Schematic Name:                             adc_bridge_1, NgSpice Name: adc_bridge
+.model u6 adc_bridge(in_low=1.0 in_high=1.5 rise_delay=1.0e-9 fall_delay=1.0e-9 ) 
+* Schematic Name:                             dac_bridge_1, NgSpice Name: dac_bridge
+.model u2 dac_bridge(out_low=0 out_high=3.3 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 ) 
+* Schematic Name:                             adc_bridge_1, NgSpice Name: adc_bridge
+.model u7 adc_bridge(in_low=1.0 in_high=1.5 rise_delay=1.0e-9 fall_delay=1.0e-9 ) 
+.tran 0.1e-06 10e-06 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+plot v(out)
+.endc
+.end
