@@ -71,5 +71,5 @@ end
 
 endmodule
 
-
+[ritam_control.docx](https://github.com/secretagent989/8bit_DualSlope_ADC/files/9738727/ritam_control.docx)
 
