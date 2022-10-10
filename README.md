@@ -175,6 +175,9 @@ Design Handbook, 2008
 (2)Analog/Digital Conversions, Howard Austerlitz, in Data 
 Acquisition Techniques Using PCs (Second Edition), 2003
 
+# Acknowledgement
+Satvik Goel, ECE Final Year, MMMUT Gorakhpur
+
 # Author
 ## **Ritam Tripathi,Electronics and Communications Engineering, B-Tech Final Year,Madan Mohan Malaviya University of Technology, Gorakhpur,UP** 
 
